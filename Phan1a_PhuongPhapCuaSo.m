@@ -4,7 +4,7 @@ d2 = d;
 d1 = d;
 wp = input('Nhập tần số dải thông wp = ');
 ws = input('Nhập tần sổ dải cắt ws = ');
-Fs = 8000;
+Fs = 1000;
 Ts = 1 / Fs;
 dwm = ws - wp; % độ rộng của vùng chuyển tiếp wp và ws;
 Peak = 20 * log10(d); % Tính độ lớn của đỉnh
@@ -97,7 +97,7 @@ xlim auto;
 T = 2;
 t = 0:Ts:T;
 
-% Tạo tín hiệu chirp từ tần số 10 Hz đến 8000 Hz
+% Tạo tín hiệu chirp từ tần số 10 Hz đến 1000 Hz
 f0 = 10;
 f1 = Fs;
 x = chirp(t, f0, T, f1); % tín hiệu đầu vào dạng chirp

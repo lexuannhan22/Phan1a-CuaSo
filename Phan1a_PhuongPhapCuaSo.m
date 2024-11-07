@@ -61,24 +61,24 @@ end
 % Tính đáp ứng xung của bộ lọc lý tưởng
 wc = (wp + ws) / 2;
 a = (m - 1) / 2; % tính pha tuyến tính
-hd = zeros(m, 1);
+h = zeros(m, 1);
 for i = 0:1:(m - 1)
     if i == a
-        hd(i + 1) = wc / pi;
+        h(i + 1) = wc / pi;
     else
-        hd(i + 1) = sin(wc * (i - a)) / (pi * (i - a));
+        h(i + 1) = sin(wc * (i - a)) / (pi * (i - a));
     end
 end
 
-% Tính h(n)
-h = hd .* w; 
+% Tính hd(n)
+hd = h .* w; 
 
-% Biểu đồ hd(n), w(n), h(n)
+% Biểu đồ h(n), w(n), hd(n)
 n = 0:1:m - 1;
 figure(1); 
-stem(n, hd);
+stem(n, h);
 title('Biểu đồ đáp ứng xung của bộ lọc lý tưởng');
-xlabel('n'); ylabel('hd(n)');
+xlabel('n'); ylabel('h(n)');
 xlim auto;
 
 figure(2); 
@@ -90,18 +90,18 @@ xlim auto;
 figure(3); 
 stem(n, h);
 title('Biểu đồ đáp ứng xung của bộ lọc FIR');
-xlabel('n'); ylabel('h(n)');
+xlabel('n'); ylabel('hd(n)');
 xlim auto;
 
 % sử dụng tín hiệu dạng chirp để so sánh tín hiệu đầu vào và đầu ra
 T = 2;
 t = 0:Ts:T;
 
-% Tạo tín hiệu chirp từ tần số 10 Hz đến 1000 Hz
+% Tạo tín hiệu chirp từ tần số 10 Hz đến 8000 Hz
 f0 = 10;
 f1 = Fs;
 x = chirp(t, f0, T, f1); % tín hiệu đầu vào dạng chirp
-y = filter(h, 1, x); % tín hiệu đầu ra sau khi lọc
+y = filter(hd, 1, x); % tín hiệu đầu ra sau khi lọc
 
 %so sánh tín hiệu đầu vào và đầu ra
 figure(4);

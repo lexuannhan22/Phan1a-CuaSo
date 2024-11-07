@@ -97,7 +97,7 @@ xlim auto;
 T = 2;
 t = 0:Ts:T;
 
-% Tạo tín hiệu chirp từ tần số 10 Hz đến 8000 Hz
+% Tạo tín hiệu chirp từ tần số 10 Hz đến 1000 Hz
 f0 = 10;
 f1 = Fs;
 x = chirp(t, f0, T, f1); % tín hiệu đầu vào dạng chirp

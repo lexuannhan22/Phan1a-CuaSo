@@ -88,7 +88,7 @@ xlabel('n'); ylabel('w(n)');
 xlim auto;
 
 figure(3); 
-stem(n, h);
+stem(n, hd);
 title('Biểu đồ đáp ứng xung của bộ lọc FIR');
 xlabel('n'); ylabel('hd(n)');
 xlim auto;
